@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Aktualizacja kredytów kursu";
+}
+
+<h2>Aktualizacja kredytów kursu</h2>
+
+@if(ViewData["RowsAffected"] == null)
+{
+    <form asp-action="UpdateCourseCredits">
+        <div class="form-actions no-color">
+            <p> 
+                Wprowadź liczbę do pomnożenia kredytów każdego kursu:
+                @Html.TextBox("multiplier")
+            </p>
+            <p>
+                <input type="submit" value="OK" class="btn btn-default" />
+            </p>
+        </div>
+    </form>
+}
+
+@if(ViewData["RowsAffected"] != null)
+{
+    <p>Liczba zaktualizowanych kredytów: @ViewData["RowsAffected"]</p>
+}
+
+<div>
+    @Html.ActionLink("Powrót", "Index");
+</div>
